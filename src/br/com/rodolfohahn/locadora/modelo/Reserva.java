@@ -1,4 +1,4 @@
-package br.com.modelo;
+package br.com.rodolfohahn.locadora.modelo;
 
 import java.util.Date;
 

@@ -1,9 +1,9 @@
-package br.com.modelo;
+package br.com.rodolfohahn.locadora.modelo;
 
-public class Fornecedor extends Pessoa{
+public class PessoaJuridica extends Pessoa{
     private String cnpj;
 
-    public Fornecedor() {
+    public PessoaJuridica() {
     }
 
     public String getCnpj() {
@@ -16,12 +16,8 @@ public class Fornecedor extends Pessoa{
 
     @Override
     public String toString() {
-        return "Fornecedor{" + "cnpj=" + cnpj + '}';
+        return "PessoaJuridica{" + "cnpj=" + cnpj + '}';
     }
-    
-    
-   
-  
     
     
     

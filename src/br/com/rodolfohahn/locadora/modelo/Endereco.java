@@ -1,7 +1,8 @@
-package br.com.modelo;
+package br.com.rodolfohahn.locadora.modelo;
 
 public class Endereco {
     
+    private int id_end;
     private String rua;
     private String complemento;
     private String bairro;
@@ -12,6 +13,16 @@ public class Endereco {
 
     public Endereco() {
     }
+
+    public int getId_end() {
+        return id_end;
+    }
+
+    public void setId_end(int id_end) {
+        this.id_end = id_end;
+    }
+
+    
 
     
 
@@ -65,8 +76,11 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return  "Rua:" + rua + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", numero=" + numero + ", cep=" + cep + '}';
+        return "Endereco{" + "id_end=" + id_end + ", rua=" + rua + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + ", numero=" + numero + ", cep=" + cep + '}';
     }
+
+    
+    
 
     
     

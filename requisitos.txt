@@ -1,0 +1,6 @@
+- Implementar a tela de cadastro de funcionário.
+	- A tela deve conter os dados presentes na classe de negócio.
+	- Devem ser implementadas as funções de cadastrar, editar, excluir, pesquisar e listar.
+	- Obrigatoriamente no formulário de cadastro do funcionário deve existir login e senha.
+	- Devem ser feitas a janela de login, janela principal e as janelas referentes ao funcionário.
+	- O usuário só pode ser logado no sistema com um usuário e senha previamente cadastrados no banco.
