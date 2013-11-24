@@ -187,7 +187,7 @@ public class FilmeDAOImplements implements FilmeDAO {
             pstm.setString(1, f.getNomeFilme());
             pstm.setInt(2, f.getDuracaoFilme());
             pstm.setString(3, f.getDescricaoFilme());
-            pstm.setDouble(4, f.getCategoria().getId());
+            pstm.setInt(4, f.getCategoria().getId());
             pstm.setDate(6, new java.sql.Date(f.getDataLancamento().getTime()));
 
             pstm.execute();

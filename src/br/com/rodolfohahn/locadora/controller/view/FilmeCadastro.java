@@ -233,6 +233,9 @@ public class FilmeCadastro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Filme f = new Filme();
+       if (!(txId.getText().equals("") || (txId.getText().equals(null)))) {
+            f.setId(Integer.parseInt(txId.getText()));
+        }
        f.setNomeFilme((txNomeFilme.getText()));
        
        try {
@@ -241,7 +244,7 @@ public class FilmeCadastro extends javax.swing.JFrame {
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Data incorreta" + e);
                     }
-       f.setId(Integer.parseInt(txId.getText()));
+       //f.setId(Integer.parseInt(txId.getText()));
        f.setCategoria((CategoriaFilme) cbCategoria.getSelectedItem());
        
        FilmeController fc= new FilmeController();
