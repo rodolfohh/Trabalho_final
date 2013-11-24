@@ -5,11 +5,11 @@ import java.util.Date;
 public class Filme {
     private int id;
     private String nomeFilme;
-    private String duracaoFilme;
+    private int duracaoFilme;
     private String descricaoFilme;
-    private String categoriaFilme;
     private Date dataLancamento;
-    private String status;
+    
+    private CategoriaFilme categoria;
 
     public Filme() {
     }
@@ -32,13 +32,15 @@ public class Filme {
         this.nomeFilme = nomeFilme;
     }
 
-    public String getDuracaoFilme() {
+    public int getDuracaoFilme() {
         return duracaoFilme;
     }
 
-    public void setDuracaoFilme(String duracaoFilme) {
+    public void setDuracaoFilme(int duracaoFilme) {
         this.duracaoFilme = duracaoFilme;
     }
+
+    
 
     public String getDescricaoFilme() {
         return descricaoFilme;
@@ -48,13 +50,7 @@ public class Filme {
         this.descricaoFilme = descricaoFilme;
     }
 
-    public String getCategoriaFilme() {
-        return categoriaFilme;
-    }
-
-    public void setCategoriaFilme(String categoriaFilme) {
-        this.categoriaFilme = categoriaFilme;
-    }
+    
 
     public Date getDataLancamento() {
         return dataLancamento;
@@ -64,18 +60,27 @@ public class Filme {
         this.dataLancamento = dataLancamento;
     }
 
-    public String getStatus() {
-        return status;
+   
+
+    public CategoriaFilme getCategoria() {
+        return categoria;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCategoria(CategoriaFilme categoria) {
+        this.categoria = categoria;
     }
 
     @Override
     public String toString() {
-        return "Filme{" + "id=" + id + ", nomeFilme=" + nomeFilme + ", duracaoFilme=" + duracaoFilme + ", descricaoFilme=" + descricaoFilme + ", categoriaFilme=" + categoriaFilme + ", dataLancamento=" + dataLancamento + ", status=" + status + '}';
+        return "Filme{" + "id=" + id + ", nomeFilme=" + nomeFilme + ", duracaoFilme=" + duracaoFilme + ", descricaoFilme=" + descricaoFilme + ", dataLancamento=" + dataLancamento + ", categoria=" + categoria + '}';
     }
+
+   
+
+    
+    
+
+    
     
     
 

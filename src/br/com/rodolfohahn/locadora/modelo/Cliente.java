@@ -1,7 +1,7 @@
 package br.com.rodolfohahn.locadora.modelo;
 
-public class Cliente extends Pessoa{
-    private Endereco endereco;
+public class Cliente extends PessoaFisica{
+    
     private double salarioClie;
     private String profissao;
     
@@ -27,8 +27,10 @@ public class Cliente extends Pessoa{
 
     @Override
     public String toString() {
-        return "Cliente{" + "endereco=" + endereco + ", salarioClie=" + salarioClie + ", profissao=" + profissao + '}';
+        return "Cliente{" + "salarioClie=" + salarioClie + ", profissao=" + profissao + '}';
     }
+
+  
     
     
     

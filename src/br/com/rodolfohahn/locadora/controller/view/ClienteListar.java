@@ -4,7 +4,9 @@
  */
 package br.com.rodolfohahn.locadora.controller.view;
 
+import br.com.rodolfohahn.locadora.controller1.ClienteController;
 import br.com.rodolfohahn.locadora.controller1.FuncionarioController;
+import br.com.rodolfohahn.locadora.modelo.Cliente;
 import br.com.rodolfohahn.locadora.modelo.Funcionario;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -14,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author guest01
  */
-public class FuncionarioListar extends javax.swing.JFrame {
+public class ClienteListar extends javax.swing.JFrame {
     private JTable tabela;
     private DefaultTableModel modelo = new DefaultTableModel();
 
     /**
      * Creates new form FuncionarioListar
      */
-    public FuncionarioListar() {
+    public ClienteListar() {
         initComponents();
         criaJTable();
         PainelRolagem.setViewportView(tabela);
@@ -91,8 +93,8 @@ public class FuncionarioListar extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(4, 4, 4))
+                                .addComponent(txPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(1, 1, 1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,39 +107,41 @@ public class FuncionarioListar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRemover)
                     .addComponent(btEditar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(PainelRolagem, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PainelRolagem, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/rodolfohahn/locadora/controller/view/imagens/i_pFunc.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/rodolfohahn/locadora/controller/view/imagens/i_pCliente.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -147,9 +151,9 @@ public class FuncionarioListar extends javax.swing.JFrame {
         int linhaSelecionada = -1;
         linhaSelecionada = tabela.getSelectedRow();
         if(linhaSelecionada >=0){
-            int idFuncionario = (int)tabela.getValueAt(linhaSelecionada, 0);
-            FuncionarioCadastro fuc = new FuncionarioCadastro(modelo,linhaSelecionada,idFuncionario);
-            fuc.setVisible(true);
+            int idCliente = (int)tabela.getValueAt(linhaSelecionada, 0);
+            ClienteCadastro clc = new ClienteCadastro(modelo,linhaSelecionada,idCliente);
+            clc.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "ERRO Y:= nenhuma linha selecionada");
         }
@@ -160,9 +164,9 @@ public class FuncionarioListar extends javax.swing.JFrame {
         int linhaSelecionada = -1;
         linhaSelecionada = tabela.getSelectedRow();
         if (linhaSelecionada >= 0) {
-            int idFuncionario = (int) tabela.getValueAt(linhaSelecionada, 0);
-            FuncionarioController fc = new FuncionarioController();
-            if (fc.remove(idFuncionario)) {
+            int idCliente = (int) tabela.getValueAt(linhaSelecionada, 0);
+            ClienteController cc = new ClienteController();
+            if (cc.remove(idCliente)) {
                 modelo.removeRow(linhaSelecionada);
             }else{
                 JOptionPane.showMessageDialog(null, "ERRO Y:= nenhuma linha foi selecionada");
@@ -173,10 +177,10 @@ public class FuncionarioListar extends javax.swing.JFrame {
 
     private void txPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPesquisarActionPerformed
         String nome = txPesquisar.getText();
-        FuncionarioController fc = new FuncionarioController();
+        ClienteController cc = new ClienteController();
         modelo.setNumRows(0);
-        for (Funcionario f:fc.listByNome(nome)){
-            modelo.addRow(new Object[]{f.getId(),f.getNome(),f.getCpf(),f.getLogin()});
+        for (Cliente c:cc.listByNome(nome)){
+            modelo.addRow(new Object[]{c.getId(),c.getNome(),c.getCpf()});
         }
     }//GEN-LAST:event_txPesquisarActionPerformed
 
@@ -235,9 +239,9 @@ private void criaJTable() {
     }
 
 private void preencherJTable() {
-        FuncionarioController fc = new FuncionarioController();
-        for (Funcionario f : fc.ListarTodos()) {
-            modelo.addRow(new Object[]{f.getId(), f.getNome(), f.getCpf(), f.getLogin()});
+       ClienteController cc = new ClienteController();
+        for (Cliente c: cc.ListarTodos()) {
+            modelo.addRow(new Object[]{c.getId(), c.getNome(), c.getCpf()});
         }
     }
 

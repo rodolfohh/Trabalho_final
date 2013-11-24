@@ -3,24 +3,20 @@ package br.com.rodolfohahn.locadora.modelo;
 import java.util.Date;
 
 public class Reserva {
-    private String nomeFilme;
+    private int id_reserva;
     private Filme filme;
     private Cliente clientes;
     private Date dataReserva;
 
     public Reserva() {
     }
-    
-    
-    
-    
 
-    public String getNomeFilme() {
-        return nomeFilme;
+    public int getId_reserva() {
+        return id_reserva;
     }
 
-    public void setNomeFilme(String nomeFilme) {
-        this.nomeFilme = nomeFilme;
+    public void setId_reserva(int id_reserva) {
+        this.id_reserva = id_reserva;
     }
 
     public Filme getFilme() {
@@ -49,8 +45,16 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "nomeFilme=" + nomeFilme + ", filme=" + filme + ", clientes=" + clientes + ", dataReserva=" + dataReserva + '}';
+        return "Reserva{" + "id_reserva=" + id_reserva + ", filme=" + filme + ", clientes=" + clientes + ", dataReserva=" + dataReserva + '}';
     }
+    
+    
+    
+    
+
+   
+
+   
     
     
     

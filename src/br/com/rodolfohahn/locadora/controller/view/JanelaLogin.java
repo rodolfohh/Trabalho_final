@@ -36,9 +36,9 @@ public class JanelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", 0, 0, new java.awt.Font("Courier New", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        txSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Courier New", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-        txLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", 0, 0, new java.awt.Font("Courier New", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        txLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Courier New", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
 
         btEntrar.setText("Entrar");
         btEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +96,9 @@ public class JanelaLogin extends javax.swing.JFrame {
         FuncionarioDAOImplements fDAOi = new FuncionarioDAOImplements();
 
         if (fDAOi.TesteSenha(txLogin.getText(), txSenha.getText()) == true) {
-            FuncionarioOpcao fo = new FuncionarioOpcao();
-            fo.setLocationRelativeTo(null);
-            fo.setExtendedState(fo.MAXIMIZED_BOTH);
-            fo.setVisible(true);
+            JanelaMenu jm = new JanelaMenu();
+            jm.setLocationRelativeTo(null);
+            jm.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Login ou Senha INCORRETOS");
             txLogin.setText("");
