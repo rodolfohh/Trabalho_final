@@ -1,0 +1,188 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: Nov 24, 2013 as 09:59 PM
+-- Versão do Servidor: 5.5.8
+-- Versão do PHP: 5.3.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Banco de Dados: `locadora_trabalho`
+--
+CREATE DATABASE `locadora_trabalho` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `locadora_trabalho`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria`
+--
+
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_categoria` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `nome_categoria`) VALUES
+(1, 'Comedia'),
+(2, 'r'),
+(3, 'Ação'),
+(4, ''),
+(5, 'Romance');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cliente`
+--
+
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `telfixo` varchar(20) DEFAULT NULL,
+  `telcel` varchar(20) DEFAULT NULL,
+  `sexo` varchar(15) DEFAULT NULL,
+  `salarioclie` double DEFAULT NULL,
+  `profissao` varchar(100) DEFAULT NULL,
+  `rg` varchar(20) DEFAULT NULL,
+  `cpf` varchar(20) DEFAULT NULL,
+  `datanascimento` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `telfixo`, `telcel`, `sexo`, `salarioclie`, `profissao`, `rg`, `cpf`, `datanascimento`) VALUES
+(1, 'r', 'r', 'r', 'Masculino', 1, '1', '1', ' 1', '1000-10-10');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `endereco`
+--
+
+CREATE TABLE IF NOT EXISTS `endereco` (
+  `id_endereco` int(11) NOT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
+  `cep` varchar(45) DEFAULT NULL,
+  `rua` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_endereco`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `endereco`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `filme`
+--
+
+CREATE TABLE IF NOT EXISTS `filme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nomefilme` varchar(100) DEFAULT NULL,
+  `duracaofilme` int(11) DEFAULT NULL,
+  `descricaofilme` varchar(200) DEFAULT NULL,
+  `categoria` int(1) DEFAULT NULL,
+  `datalancamento` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `categoria_fk_idx` (`categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `filme`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionario`
+--
+
+CREATE TABLE IF NOT EXISTS `funcionario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `telfixo` varchar(45) DEFAULT NULL,
+  `telcel` varchar(45) DEFAULT NULL,
+  `sexo` varchar(45) DEFAULT NULL,
+  `rg` varchar(45) DEFAULT NULL,
+  `cpf` varchar(45) DEFAULT NULL,
+  `idade` int(11) DEFAULT NULL,
+  `salario` double DEFAULT NULL,
+  `ctps` varchar(45) DEFAULT NULL,
+  `login` varchar(45) DEFAULT NULL,
+  `senha` varchar(45) DEFAULT NULL,
+  `dataadmissao` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`id`, `nome`, `telfixo`, `telcel`, `sexo`, `rg`, `cpf`, `idade`, `salario`, `ctps`, `login`, `senha`, `dataadmissao`) VALUES
+(10, 'Taynnã Mello', '36671480', '99265905', 'Feminino', NULL, '11111', 0, 0, '', 'taynna', 'taynna', '2010-10-10'),
+(11, 'jana', '1', '19', 'Feminino', NULL, '29', 0, 191, '191', '29', '29', '2021-08-20'),
+(12, 'Rodolfo Hahn', '36671480', '99265905', 'Masculino', NULL, '654654654', 0, 0, '2151515', 'rodolfohh1', 'rodolfohh1', '2010-10-10'),
+(13, '1', '1', '1', 'Feminino', NULL, '1', 0, 1, '1', '1', '1', '1111-11-11'),
+(14, 'r', 'r', 'r', 'Masculino', NULL, '1', 0, 1, '1', '2', '2', '1000-10-10');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `reserva`
+--
+
+CREATE TABLE IF NOT EXISTS `reserva` (
+  `id_reserva` int(11) NOT NULL AUTO_INCREMENT,
+  `filme` int(11) DEFAULT NULL,
+  `clientes` int(11) DEFAULT NULL,
+  `datareserva` date DEFAULT NULL,
+  PRIMARY KEY (`id_reserva`),
+  KEY `filme_fk_idx` (`filme`),
+  KEY `clientes_fk_idx` (`clientes`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `reserva`
+--
+
+
+--
+-- Restrições para as tabelas dumpadas
+--
+
+--
+-- Restrições para a tabela `filme`
+--
+ALTER TABLE `filme`
+  ADD CONSTRAINT `categoria_fk` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Restrições para a tabela `reserva`
+--
+ALTER TABLE `reserva`
+  ADD CONSTRAINT `clientes_fk` FOREIGN KEY (`clientes`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `filme_fk` FOREIGN KEY (`filme`) REFERENCES `filme` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
